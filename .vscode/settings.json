@@ -1,0 +1,9 @@
+{
+    "cSpell.words": [
+        "insync"
+    ],
+    "python.linting.pylintArgs": [
+        "--disable=wrong-import-order,missing-docstring,unused-import,unused-wildcard-import,wildcard-import,unnecessary-dunder-call,unused-argument,logging-fstring-interpolation,f-string-without-interpolation",
+        "--good-names-rgxs=^[_a-z][_a-z0-9]?$" // single or double variable names are okay
+    ],
+}

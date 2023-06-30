@@ -1,0 +1,7 @@
+﻿name: base
+dependencies:
+  - pip
+  - black
+  - isort
+  - jupyterlab_code_formatter
+  - plotly # for jupyter addin

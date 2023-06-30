@@ -1,0 +1,85 @@
+{
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  // generic app workspace area
+  "workspaceMount": "source=${localWorkspaceFolder},target=/src/app,type=bind,consistency=cached",
+  "workspaceFolder": "/src/app",
+  "forwardPorts": [
+    //jupyter output
+    8888
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-azuretools.vscode-docker",
+        "DavidAnson.vscode-markdownlint",
+        "eamodio.gitlens",
+        "streetsidesoftware.code-spell-checker"
+      ],
+      "settings": {
+        // python paths
+        "python.defaultInterpreterPath": "/opt/conda/envs/app/bin/python",
+        "python.linting.pylintPath": "/opt/conda/envs/app/bin/pylint",
+        //linter
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "python.linting.pylintArgs": [
+          "--disable=wrong-import-order,missing-docstring,unused-import,unused-wildcard-import,wildcard-import,unnecessary-dunder-call,unused-argument,logging-fstring-interpolation,f-string-without-interpolation,no-else-return",
+          "--good-names-rgxs=^[_a-z][_a-z0-9]?$" // single or double variable names are okay
+        ],
+        // tests
+        "python.testing.pytestEnabled": true,
+        // formatting
+        "editor.formatOnSave": true,
+        "python.testing.pytestArgs": [
+          "tests"
+        ],
+        "python.formatting.provider": "black",
+        "python.formatting.blackArgs": [
+          "--line-length",
+          "100"
+        ],
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": true
+        },
+        "isort.args": [
+          "--profile",
+          "black",
+          "--combine-as"
+        ],
+        "tasks": {
+          // See https://go.microsoft.com/fwlink/?LinkId=733558
+          // for the documentation about the tasks.json format
+          "version": "2.0.0",
+          "presentation": {
+            "echo": true,
+            "reveal": "always",
+            "focus": false,
+            "panel": "dedicated",
+            "showReuseMessage": false,
+            "clear": true
+          },
+          "tasks": [
+            {
+              "label": "jupyter",
+              "type": "shell",
+              "isBackground": true,
+              "problemMatcher": [],
+              "command": "start-notebook.sh --ServerApp.password='' --ServerApp.token=''"
+            },
+            {
+              "label": "pytest",
+              "type": "shell",
+              "isBackground": false,
+              "problemMatcher": [],
+              "command": "/opt/conda/envs/app/bin/python -m pytest --rootdir /src/app ./tests"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

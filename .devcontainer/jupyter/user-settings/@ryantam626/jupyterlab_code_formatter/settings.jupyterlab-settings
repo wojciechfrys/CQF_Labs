@@ -1,0 +1,9 @@
+{
+    "black": {
+        "line_length": 100,
+    },
+    "isort": {
+        "combine_as_imports": true
+    },
+    "formatOnSave": false,
+}
