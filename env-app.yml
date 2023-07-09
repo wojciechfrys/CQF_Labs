@@ -1,16 +1,16 @@
 ﻿name: app
 dependencies:
-  - pip
+  - pip=23.1.2
   - python=3.9
   - setuptools=65.5.0 # gym==0.21.0 breaks on newer version
   - wheel<0.40.0 # gym==0.21.0 breaks on newer version
-  - pytest
-  - pytest-asyncio
+  - pytest=7.4.0
+  - pytest-asyncio=0.21.0
   # dev support
-  - ipykernel
-  - pylint
-  - black
-  - isort
+  - ipykernel=6.21.1
+  - pylint=2.17.4
+  - black=23.3.0
+  - isort=5.12.0
   # tests
   - pip:
     - absl-py==1.4.0

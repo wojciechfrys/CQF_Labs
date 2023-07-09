@@ -1,3 +1,8 @@
+# local files
+.data/
+.raw/
+.home/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

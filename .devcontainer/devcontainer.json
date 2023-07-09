@@ -6,6 +6,10 @@
   // generic app workspace area
   "workspaceMount": "source=${localWorkspaceFolder},target=/src/app,type=bind,consistency=cached",
   "workspaceFolder": "/src/app",
+  "mounts": [
+    "source=${localWorkspaceFolder}/.home/.jupyter,target=/home/jovyan/.jupyter,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/.home/.ipython,target=/home/jovyan/.ipython,type=bind,consistency=cached",
+  ],
   "forwardPorts": [
     //jupyter output
     8888

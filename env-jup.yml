@@ -1,9 +1,9 @@
 ﻿name: base
 dependencies:
-  - pip
+  - pip=23.1.2
   - plotly=5.13.0 # for jupyter addin
-  - black
-  - isort
-  - jupyterlab_code_formatter
+  - black=23.3.0
+  - isort=5.12.0
+  - jupyterlab_code_formatter=2.2.1
   - pip:
     - jupyter-contrib-nbextensions==0.7.0
