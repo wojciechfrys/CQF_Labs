@@ -17,38 +17,47 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-python.python",
+        // remote containers
         "ms-azuretools.vscode-docker",
+        // ms python tools
+        "ms-python.python",
+        "ms-python.pylint",
+        "ms-python.black-formatter",
+        "ms-python.isort",
+        "ms-toolsai.jupyter",
+        // others
+        "streetsidesoftware.code-spell-checker",
         "DavidAnson.vscode-markdownlint",
         "eamodio.gitlens",
-        "streetsidesoftware.code-spell-checker"
       ],
       "settings": {
         // python paths
         "python.defaultInterpreterPath": "/opt/conda/envs/app/bin/python",
-        "python.linting.pylintPath": "/opt/conda/envs/app/bin/pylint",
-        //linter
-        "python.linting.enabled": true,
-        "python.linting.pylintEnabled": true,
-        "python.linting.pylintArgs": [
-          "--disable=wrong-import-order,missing-docstring,unused-import,unused-wildcard-import,wildcard-import,unnecessary-dunder-call,unused-argument,logging-fstring-interpolation,f-string-without-interpolation,no-else-return",
-          "--good-names-rgxs=^[_a-z][_a-z0-9]?$" // single or double variable names are okay
-        ],
         // tests
         "python.testing.pytestEnabled": true,
-        // formatting
-        "editor.formatOnSave": true,
         "python.testing.pytestArgs": [
           "tests"
         ],
-        "python.formatting.provider": "black",
-        "python.formatting.blackArgs": [
+        // formatting
+        "python.formatting.provider": "none",
+        "[python]": {
+          "editor.defaultFormatter": "ms-python.black-formatter",
+          "editor.formatOnSave": true,
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+          },
+        },
+        // pylint
+        "pylint.args": [
+          "--disable=wrong-import-order,missing-docstring,unused-import,unused-wildcard-import,wildcard-import,unnecessary-dunder-call,unused-argument,logging-fstring-interpolation,f-string-without-interpolation,no-else-return",
+          "--good-names-rgxs=^[_a-z][_a-z0-9]?$" // single or double variable names are okay
+        ],
+        // black
+        "black-formatter.args": [
           "--line-length",
           "100"
         ],
-        "editor.codeActionsOnSave": {
-          "source.organizeImports": true
-        },
+        // isort
         "isort.args": [
           "--profile",
           "black",
