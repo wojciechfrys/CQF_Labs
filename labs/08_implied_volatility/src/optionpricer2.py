@@ -16,7 +16,7 @@ class BS:
         volatility    : float
     """    
     
-    def __init__(self, spot, strike, rate, dte, volatility, callprice=None, putprice=None):
+    def __init__(self, spot, strike, rate, dte, volatility=None, callprice=None, putprice=None):
         
         # Spot Price
         self.spot = spot
@@ -30,14 +30,17 @@ class BS:
         # Days To Expiration
         self.dte = dte
         
-        # Volaitlity
-        self.volatility = volatility
-        
         # Callprice > mkt price of call
         self.callprice = callprice
         
         # Putprice > mkt price of put
         self.putprice = putprice
+        
+        # Volaitlity
+        if volatility is None:
+            self.volatility = self._impvol
+        else:
+            self.volatility = volatility
        
         # Utility 
         self._a_ = self.volatility * self.dte**0.5
