@@ -29,6 +29,7 @@
         "streetsidesoftware.code-spell-checker",
         "DavidAnson.vscode-markdownlint",
         "eamodio.gitlens",
+        "xelad0m.jupyter-toc",
       ],
       "settings": {
         // python paths
@@ -49,7 +50,7 @@
         },
         // pylint
         "pylint.args": [
-          "--disable=wrong-import-order,missing-docstring,unused-import,unused-wildcard-import,wildcard-import,unnecessary-dunder-call,unused-argument,logging-fstring-interpolation,f-string-without-interpolation,no-else-return",
+          "--disable=wrong-import-order,missing-docstring,unused-import,unused-wildcard-import,wildcard-import,unnecessary-dunder-call,unused-argument,logging-fstring-interpolation,f-string-without-interpolation,no-else-return,multiple-statements",
           "--good-names-rgxs=^[_a-z][_a-z0-9]?$" // single or double variable names are okay
         ],
         // black

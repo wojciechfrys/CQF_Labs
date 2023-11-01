@@ -11,7 +11,8 @@ dependencies:
   - pylint=2.17.4
   - black=23.3.0
   - isort=5.12.0
-  # tests
+  # better works from conda
+  - python-graphviz=0.12
   - pip:
     - absl-py==1.4.0
     - ale-py==0.7.4
